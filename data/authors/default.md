@@ -1,16 +1,16 @@
 ---
-name: Tails Azimuth
-avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+name: Mason Na
+avatar: /static/images/Mason.JPG
+occupation: Data Engineer
+company: Dongkuk Systems
+email: bohemianmoon5@gmail.com
+github: https://github.com/bohemianmoon5
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+Hi, I'm Mason Na. I do Data Engineer at the moment.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+Learning Java, Python, Informatica, Snowflake, AWS, Google Cloud, Airflow, Docker, Kubernetes, etc ...
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+beginning is always small but one of my hope that is keep developing myself.
+
+feel free to look around this pages.
