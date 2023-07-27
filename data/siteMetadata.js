@@ -1,8 +1,8 @@
 const siteMetadata = {
   title: 'Mason Blog',
   author: 'Mason Na',
-  //headerTitle: 'Mason Blog',
-  //description: 'A blog created with Next.js and Tailwind.css',
+  headerTitle: '',
+  description: '',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://bohemianmoon5.vercel.app',
