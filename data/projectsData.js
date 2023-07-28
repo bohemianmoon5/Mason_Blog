@@ -1,19 +1,24 @@
 const projectsData = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'Local Community Marketplace',
+    description: `This is my first team project. We are making Local Community Marketplace System on console. 
+    Main functions are direct dealing and safe transaction.`,
+    imgSrc: '/static/images/project1.png',
+    href: 'https://bohemianmoon5.github.io/project/my-first-project',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'Kiosk System of Study Cafe',
+    description: `This is my second team project. We are making Kiosk System of Study Cafe by Java Swing. 
+    Main functions are login, reservation, payment.`,
+    imgSrc: '/static/images/project2.png',
+    href: 'https://github.com/bohemianmoon5/CODERIUM',
+  },
+  {
+    title: 'Personal Blog',
+    description: `This is my first personal project. I am making this blog by Spring Framework using Java.
+    Main functions are user, board, reply, calendar.`,
+    imgSrc: '/static/images/project3.png',
+    href: 'https://github.com/bohemianmoon5/myblog',
   },
 ]
 
