@@ -41,13 +41,17 @@ const siteMetadata = {
     giscusConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://giscus.app/
-      repo: 'bohemianmoon5/giscus_comments',
+      repo: .env.NEXT_PUBLIC_GISCUS_REPO,
+      // repo: 'bohemianmoon5/giscus_comments',
       // process.env.NEXT_PUBLIC_GISCUS_REPO
-      repositoryId: 'R_kgDOKHrAWQ',
+      repositoryId: .env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
+      // repositoryId: 'R_kgDOKHrAWQ',
       // process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID
-      category: 'Ideas',
+      category: .env.NEXT_PUBLIC_GISCUS_CATEGORY,
+      // category: 'Ideas',
       // process.env.NEXT_PUBLIC_GISCUS_CATEGORY
-      categoryId: 'DIC_kwDOKHrAWc4CYoqc',
+      categoryId: .env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
+      // categoryId: 'DIC_kwDOKHrAWc4CYoqc',
       // process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID
       mapping: 'pathname', // supported options: pathname, url, title
       reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
