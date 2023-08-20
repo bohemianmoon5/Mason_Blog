@@ -95,7 +95,7 @@ export default function Home({ posts }) {
       // <div className="flex items-center justify-center pt-4">
       //    <NewsletterForm />
       // </div>
-      // )}
-    // </>
-  // )
+      //  )}
+    </>
+  )
 }
