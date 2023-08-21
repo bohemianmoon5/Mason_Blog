@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           <Link href="https://bohemianmoon5.github.io/about">
-            'About Mason'
+            About Mason
           </Link>
         </div>
       </div>
