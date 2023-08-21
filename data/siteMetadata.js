@@ -62,7 +62,7 @@ const siteMetadata = {
       lang: 'en',
       // theme when dark mode
       darkTheme: 'transparent_dark',
-      data_loading: 'lazy',
+      // data_loading: 'lazy',
       crossorigin: 'anonymous',
       // If the theme option above is set to 'custom`
       // please provide a link below to your custom theme css file.
