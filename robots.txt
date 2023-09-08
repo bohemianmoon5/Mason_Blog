@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bohemianmoon5.vercel.app/sitemap.xml
