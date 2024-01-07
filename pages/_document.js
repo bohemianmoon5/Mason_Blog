@@ -4,8 +4,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en" className="scroll-smooth">
         <Head>
-	  {/* Google Search Console */}
-	  <meta name="google-site-verification" content="AKOu4VLTdorNO51n4-meM1T3Q2c8YcGoR8SB5pkjn8g" />
           <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
           <link
             rel="icon"
