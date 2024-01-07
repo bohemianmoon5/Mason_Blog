@@ -16,6 +16,9 @@ export async function getStaticProps() {
 export default function Home({ posts }) {
   return (
     <>
+      <Head>
+      <meta name="google-site-verification" content="AKOu4VLTdorNO51n4-meM1T3Q2c8YcGoR8SB5pkjn8g" />
+      </Head>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
