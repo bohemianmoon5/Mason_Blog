@@ -1,3 +1,5 @@
+import type { MetadataRoute } from "next";
+
 const Robots = (): MetadataRoute.Robots => {
   return {
     rules: {
