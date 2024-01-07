@@ -33,4 +33,12 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument
+export default function MyDocument() {
+	return (
+		<Html lang="en">
+			<Head>
+				<meta name="google-site-verification" content="AKOu4VLTdorNO51n4-meM1T3Q2c8YcGoR8SB5pkjn8g" />
+			</Head>
+		</Html>
+		);
+}
