@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabaseClient.js'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const guestbook = () => {
+const Guestbook = () => {
   const [guestbookData, setGuestbookData] = React.useState(null)
   const [message, setMessage] = React.useState('')
   const [emptyAlert, setEmptyAlert] = React.useState(false)
@@ -46,9 +46,9 @@ const guestbook = () => {
   return (
     <main className="">
       <Head>
-        <title>Guestbook demo - ElasChen</title>
+        <title>Guestbook demo - MasonNa</title>
       </Head>
-      <div className="p-2 mt-5">
+      <div className="mt-5 p-2">
         <input
           ref={messageInput}
           onChange={(e) => {
@@ -57,14 +57,14 @@ const guestbook = () => {
           onFocus={() => setEmptyAlert(false)}
           type="text"
           placeholder="Your message..."
-          className="w-full py-1 px-2 text-lg rounded-md bg-neutral-100 ring-1 ring-blue-300 focus:ring-[3px] focus:outline-none duration-75"
+          className="rounded-md bg-neutral-100 py-1 px-2 text-lg ring-1 ring-blue-300 duration-75 focus:outline-none focus:ring-[3px]"
         />
         <p className={`text-md text-red-500 ${emptyAlert ? 'block' : 'hidden'}`}>
           Message is empty
         </p>
         <button
           onClick={uploadData}
-          className="drop-shadow-sm px-2 py-1 bg-blue-400 hover:bg-blue-500 duration-100 rounded-md mt-2 w-full text-lg"
+          className="mt-2 w-full rounded-md bg-blue-400 px-2 py-1 text-lg drop-shadow-sm duration-100 hover:bg-blue-500"
         >
           Send it
         </button>
@@ -77,7 +77,7 @@ const guestbook = () => {
               .map((entry) => (
                 <li
                   key={entry.id}
-                  className="hover:bg-neutral-200 px-3 py-2 rounded-md duration-100 my-1 hover:drop-shadow-sm"
+                  className="my-1 rounded-md px-3 py-2 duration-100 hover:bg-neutral-200"
                 >
                   <p className="text-md">{entry.message}</p>
                   <div className="flex text-xs">
@@ -85,7 +85,7 @@ const guestbook = () => {
                       {entry.created_at.slice(0, 10)}&thinsp;at&thinsp;
                       {entry.created_at.slice(11, 16)}
                     </p>
-                    <button onClick={() => removeData(entry.id)} className="text-red-500 ml-2">
+                    <button onClick={() => removeData(entry.id)} className="ml-2 text-red-500">
                       Delete
                     </button>
                   </div>
@@ -108,4 +108,4 @@ const guestbook = () => {
   )
 }
 
-export default guestbook
+export default Guestbook
