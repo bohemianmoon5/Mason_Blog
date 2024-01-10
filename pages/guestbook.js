@@ -44,31 +44,29 @@ const Guestbook = () => {
   }, [])
 
   return (
-    <main className="">
+    <main className="container mx-auto p-4">
       <Head>
         <title>Guestbook demo - MasonNa</title>
       </Head>
-      <div className="mt-5 p-2">
+      <div className="mt-5 p-2 flex items-center">
         <input
           ref={messageInput}
-          onChange={(e) => {
-            setMessage(e.target.value)
-          }}
+          onChange={(e) => setMessage(e.target.value)}
           onFocus={() => setEmptyAlert(false)}
           type="text"
-          placeholder="Your message..."
-          className="rounded-md bg-neutral-100 py-1 px-2 text-lg ring-1 ring-blue-300 duration-75 focus:outline-none focus:ring-[3px]"
+          placeholder="Type your message..."
+          className="flex-grow rounded-l-md bg-gray-100 py-2 px-4 text-lg text-gray-800 border border-mint-500 focus:outline-none focus:border-mint-700"
         />
-        <p className={`text-md text-red-500 ${emptyAlert ? 'block' : 'hidden'}`}>
-          Message is empty
-        </p>
         <button
           onClick={uploadData}
-          className="mt-2 w-full rounded-md bg-blue-400 px-2 py-1 text-lg drop-shadow-sm duration-100 hover:bg-blue-500"
+          className="rounded-r-md bg-blue-500 px-4 py-2 text-lg text-white hover:bg-blue-600 transition-all"
         >
-          Send it
+          Send
         </button>
       </div>
+      <p className={`text-md text-red-500 ${emptyAlert ? 'block' : 'hidden'}`}>
+        Message is empty
+      </p>      
       <div className="mb-5">
         <ul>
           {guestbookData ? (
@@ -93,7 +91,7 @@ const Guestbook = () => {
               ))
           ) : (
             <Skeleton
-              className="my-2"
+              className="my-4"
               borderRadius={10}
               count={1}
               height={60}
