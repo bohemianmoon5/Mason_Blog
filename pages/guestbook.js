@@ -34,11 +34,6 @@ const Guestbook = () => {
     setMessage('')
   }
 
-  const removeData = async (removeId) => {
-    const { data } = await supabase.from('guestbook').delete().eq('id', removeId)
-    fetchGuestbook()
-  }
-
   React.useEffect(() => {
     fetchGuestbook()
   }, [])
@@ -46,9 +41,9 @@ const Guestbook = () => {
   return (
     <main className="container mx-auto p-4">
       <Head>
-        <title>Guestbook demo - Mason</title>
+        <title>Guestbook demo - MasonNa</title>
       </Head>
-      <div className="mt-5 flex items-center p-2">
+      <div className="mt-5 p-2 flex items-center">
         <input
           ref={messageInput}
           onChange={(e) => setMessage(e.target.value)}
@@ -60,6 +55,7 @@ const Guestbook = () => {
         <button
           onClick={uploadData}
           className="rounded-r-md bg-blue-500 px-4 py-2 text-lg text-white transition-all hover:bg-blue-600"
+          style={{ backgroundColor: 'mint' }}
         >
           ⬇️
         </button>
@@ -81,9 +77,6 @@ const Guestbook = () => {
                       {entry.created_at.slice(0, 10)}&thinsp;at&thinsp;
                       {entry.created_at.slice(11, 16)}
                     </p>
-                    <button onClick={() => removeData(entry.id)} className="ml-2 text-red-500">
-                      Delete
-                    </button>
                   </div>
                 </li>
               ))
