@@ -1,55 +1,52 @@
-import React from "react";
-import Head from "next/head";
-import { supabase } from "../lib/supabaseClient.js";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import React from 'react'
+import Head from 'next/head'
+import { supabase } from '../lib/supabaseClient.js'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Guestbook = () => {
-  const [guestbookData, setGuestbookData] = React.useState(null);
-  const [message, setMessage] = React.useState("");
-  const [emptyAlert, setEmptyAlert] = React.useState(false);
-  const messageInput = React.useRef();
+  const [guestbookData, setGuestbookData] = React.useState(null)
+  const [message, setMessage] = React.useState('')
+  const [emptyAlert, setEmptyAlert] = React.useState(false)
+  const messageInput = React.useRef()
 
   const fetchGuestbook = async () => {
-    const { data, error } = await supabase.from("guestbook").select();
+    const { data, error } = await supabase.from('guestbook').select()
     if (data) {
-      setGuestbookData(data);
-      console.log(data);
+      setGuestbookData(data)
+      console.log(data)
     }
-  };
+  }
 
   const uploadData = async () => {
     if (!message.trim()) {
-      setEmptyAlert(true);
-      return;
+      setEmptyAlert(true)
+      return
     }
 
-    await supabase.from("guestbook").insert([
+    await supabase.from('guestbook').insert([
       {
         message,
       },
-    ]);
+    ])
 
-    fetchGuestbook();
-    setMessage("");
-  };
+    fetchGuestbook()
+    setMessage('')
+  }
 
   const removeData = async (removeId) => {
-    const { data } = await supabase
-      .from("guestbook")
-      .delete()
-      .eq("id", removeId);
-    fetchGuestbook();
-  };
+    const { data } = await supabase.from('guestbook').delete().eq('id', removeId)
+    fetchGuestbook()
+  }
 
   React.useEffect(() => {
-    fetchGuestbook();
-  }, []);
+    fetchGuestbook()
+  }, [])
 
   return (
     <main className="container mx-auto p-4">
       <Head>
-        <title>Guestbook demo - MasonNa</title>
+        <title>Guestbook demo - Mason</title>
       </Head>
       <div className="mt-5 p-2 flex items-center">
         <input
@@ -67,9 +64,7 @@ const Guestbook = () => {
           Send
         </button>
       </div>
-      <p className={`text-md text-red-500 ${emptyAlert ? "block" : "hidden"}`}>
-        Message is empty
-      </p>
+      <p className={`text-md text-red-500 ${emptyAlert ? 'block' : 'hidden'}`}>Message is empty</p>
       <div className="mb-5">
         <ul>
           {guestbookData ? (
@@ -86,10 +81,7 @@ const Guestbook = () => {
                       {entry.created_at.slice(0, 10)}&thinsp;at&thinsp;
                       {entry.created_at.slice(11, 16)}
                     </p>
-                    <button
-                      onClick={() => removeData(entry.id)}
-                      className="ml-2 text-red-500"
-                    >
+                    <button onClick={() => removeData(entry.id)} className="ml-2 text-red-500">
                       Delete
                     </button>
                   </div>
@@ -109,7 +101,7 @@ const Guestbook = () => {
         </ul>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Guestbook;
+export default Guestbook
