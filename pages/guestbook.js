@@ -50,11 +50,12 @@ const Guestbook = () => {
           onFocus={() => setEmptyAlert(false)}
           type="text"
           placeholder="Type your message..."
-          className="border-mint-500 focus:border-mint-700 flex-grow rounded-l-md border bg-gray-100 py-2 px-4 text-lg text-gray-800 focus:outline-none"
+          className="border-mint-500 focus:border-mint-700 flex-grow rounded-l-md border bg-gray-800 py-2 px-4 text-lg text-gray-800 focus:outline-none"
         />
         <button
           onClick={uploadData}
           className="rounded-r-md bg-blue-500 px-4 py-2 text-lg text-white transition-all hover:bg-blue-600"
+          title="Send"
           style={{ backgroundColor: 'transparent' }}
         >
           🚀
