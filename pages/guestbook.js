@@ -55,9 +55,9 @@ const Guestbook = () => {
         <button
           onClick={uploadData}
           className="rounded-r-md bg-blue-500 px-4 py-2 text-lg text-white transition-all hover:bg-blue-600"
-          style={{ backgroundColor: '#7CD2B3' }}
+          style={{ backgroundColor: 'transparent' }}
         >
-          ⬇️
+          🚀
         </button>
       </div>
       <p className={`text-md text-red-500 ${emptyAlert ? 'block' : 'hidden'}`}>Message is empty</p>
