@@ -62,7 +62,7 @@ const Guestbook = () => {
         />
         <button
           onClick={uploadData}
-          className="transition-all hover:bg-blue-600 rounded-r-md bg-blue-500 px-4 py-2 text-lg text-white"
+          className="rounded-r-md bg-blue-500 px-4 py-2 text-lg text-white transition-all hover:bg-blue-600"
         >
           Send
         </button>
