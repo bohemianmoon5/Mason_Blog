@@ -43,7 +43,7 @@ const Guestbook = () => {
       <Head>
         <title>Guestbook demo - MasonNa</title>
       </Head>
-      <div className="mt-5 p-2 flex items-center">
+      <div className="mt-5 flex items-center p-2">
         <input
           ref={messageInput}
           onChange={(e) => setMessage(e.target.value)}
