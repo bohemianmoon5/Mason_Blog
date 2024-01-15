@@ -7,10 +7,6 @@ email: bohemianmoon5@gmail.com
 github: https://github.com/bohemianmoon5
 ---
 
-# Mason Na - Data Engineer
-
-![Mason's Avatar](/static/images/Mason.JPG)
-
 ## Introduction
 
 Hi, I'm Mason Na, a Data Engineer at Dongkuk Systems. Currently, I'm learning Java, Python, Informatica, Snowflake, AWS, Google Cloud, Airflow, Docker, Kubernetes, and more. I believe in continuous self-development and strive to expand my skills.
