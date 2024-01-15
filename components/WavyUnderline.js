@@ -1,9 +1,10 @@
 import React from 'react'
 
-const WavyUnderline = ({ text }) => {
+const WavyUnderline = ({ text, spaced = true }) => {
   const containerStyles = {
     position: 'relative',
     display: 'inline-block',
+    marginRight: spaced ? '0.5em' : '0', // Add spacing if needed
   }
 
   const underlineStyles = {
@@ -41,7 +42,7 @@ const WavyUnderline = ({ text }) => {
       {words.map((word, index) => (
         <span key={index}>
           {word}
-          {index < words.length - 1 && ' '}
+          {index < words.length - 1 && spaced && ' '}
         </span>
       ))}
       <span className="wave-underline" style={underlineStyles}></span>
