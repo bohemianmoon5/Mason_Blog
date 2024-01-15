@@ -2,19 +2,19 @@ import React from 'react'
 
 const WavyUnderline = ({ text }) => {
   const underlineStyles = {
-    cursor: 'pointer',
-    textDecoration: 'none',
+    position: 'relative',
     display: 'inline-block',
+    textDecoration: 'none',
+    color: 'black', // Adjust the color of the text
   }
 
   const waveStyles = {
     position: 'absolute',
     content: '""',
-    height: '4px',
+    height: '100%',
     width: '100%',
     bottom: 0,
     left: 0,
-    backgroundColor: 'transparent',
     backgroundImage: 'linear-gradient(90deg, #3498db, #e74c3c, #2ecc71, #f39c12)',
     backgroundSize: '200% 100%',
     backgroundPosition: '0 0',
