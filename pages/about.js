@@ -13,7 +13,6 @@ export async function getStaticProps() {
 export default function About({ authorDetails }) {
   const { mdxSource, frontMatter } = authorDetails
 
-  // Metadata constant
   const metadata: Metadata = {
     title: frontMatter.title || 'About Me',
     description: frontMatter.description || 'Mason의 경력기술서',
