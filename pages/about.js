@@ -1,28 +1,25 @@
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { getFileBySlug } from '@/lib/mdx'
-import Intro from '../data/about/intro.mdx'
+import { getMdxContent } from '../data/author/intro' // Adjust the import path
 
 const DEFAULT_LAYOUT = 'AuthorLayout'
 
 export async function getStaticProps() {
   const authorDetails = await getFileBySlug('authors', ['default'])
-  // You need to define getIntroData or use the appropriate function here
-  const introData = await getIntroData()
+  const introData = await getMdxContent('intro') // Replace with the correct function
 
   return { props: { authorDetails, introData } }
 }
 
-export function About({ authorDetails, introData }) {
+export function About({ introData }) {
   const { mdxSource, frontMatter } = introData || {}
 
   return (
-    <>
-      <MDXLayoutRenderer
-        layout={frontMatter.layout || DEFAULT_LAYOUT}
-        mdxSource={mdxSource}
-        frontMatter={frontMatter}
-      />
-    </>
+    <MDXLayoutRenderer
+      layout={frontMatter.layout || DEFAULT_LAYOUT}
+      mdxSource={mdxSource}
+      frontMatter={frontMatter}
+    />
   )
 }
 
