@@ -14,14 +14,15 @@ const WavyUnderline = ({ text }) => {
     bottom: 0,
     left: 0,
     backgroundColor: 'transparent',
-    backgroundImage: 'linear-gradient(90deg, #3498db, #e74c3c, #2ecc71, #f39c12)',
-    backgroundSize: '200% 100%',
+    backgroundImage:
+      'linear-gradient(90deg, #3498db, #e74c3c, #2ecc71, #f39c12, #3498db, #e74c3c, #2ecc71)',
+    backgroundSize: '400% 100%',
     backgroundPosition: '0 0',
     transition: 'background-position 0.3s',
   }
 
   const handleHover = (e) => {
-    e.currentTarget.querySelector('.wave-underline').style.backgroundPosition = '100% 0'
+    e.currentTarget.querySelector('.wave-underline').style.backgroundPosition = '200% 0'
   }
 
   const handleLeave = (e) => {

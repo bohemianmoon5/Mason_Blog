@@ -11,8 +11,8 @@ github: https://github.com/bohemianmoon5
 
 Hi, I'm **Mason Na**, a passionate Data Engineer at Dongkuk Systems. Currently, I'm on a journey of learning and mastering various technologies, including:
 
-- <WavyUnderline text="Java" /> and <WavyUnderline text="Python" /> are programming languages I am learning.
-- <WavyUnderline text="Informatica" />, <WavyUnderline text="Snowflake" />, <WavyUnderline text="AWS" />, and <WavyUnderline text="Google Cloud" /> are tools and platforms I work with.
+- <WavyUnderline text="Java" /> and <WavyUnderline text="Python" /> programming languages I am learning.
+- <WavyUnderline text="Informatica" />, <WavyUnderline text="Snowflake" />, <WavyUnderline text="AWS" />, and <WavyUnderline text="Google Cloud" /> tools and platforms I work with.
 - I am also exploring <WavyUnderline text="Airflow" />, <WavyUnderline text="Docker" />, and <WavyUnderline text="Kubernetes" />, and more. I believe in continuous self-development and strive to expand my skills.
 
 Feel free to explore my [GitHub](https://github.com/bohemianmoon5) for more.
