@@ -1,3 +1,12 @@
+---
+name: Mason Na
+avatar: /static/images/Mason.JPG
+occupation: Data Engineer
+company: Dongkuk Systems
+email: bohemianmoon5@gmail.com
+github: https://github.com/bohemianmoon5
+---
+
 # Mason Na - Data Engineer
 
 ![Mason's Avatar](/static/images/Mason.JPG)
