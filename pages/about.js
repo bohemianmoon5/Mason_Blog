@@ -14,14 +14,14 @@ export default function About({ authorDetails }) {
   const { mdxSource, frontMatter } = authorDetails
 
   const metadata: Metadata = {
-    title: frontMatter.title || 'About Me',
-    description: frontMatter.description || 'Mason의 경력기술서',
+    title: frontMatter?.title || 'About Me',
+    description: frontMatter?.description || 'Mason의 경력기술서',
   }
 
   return (
     <>
       <MDXLayoutRenderer
-        layout={frontMatter.layout || DEFAULT_LAYOUT}
+        layout={frontMatter?.layout || DEFAULT_LAYOUT}
         mdxSource={mdxSource}
         frontMatter={frontMatter}
       />
