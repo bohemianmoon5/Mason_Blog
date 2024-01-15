@@ -15,19 +15,21 @@ const WavyUnderline = ({ text }) => {
     left: 0,
     backgroundColor: 'transparent',
     backgroundImage:
-      'linear-gradient(90deg, #3498db, #e74c3c, #2ecc71, #f39c12, #3498db, #e74c3c, #2ecc71)',
-    backgroundSize: '400% 100%',
+      'linear-gradient(45deg, #3498db, #e74c3c, #2ecc71, #f39c12, #3498db, #e74c3c, #2ecc71)',
+    backgroundSize: '200% 100%',
     backgroundPosition: '0 0',
     transition: 'background-position 0.3s',
   }
 
   const handleHover = (e) => {
-    e.currentTarget.querySelector('.wave-underline').style.backgroundPosition = '200% 0'
+    e.currentTarget.querySelector('.wave-underline').style.backgroundPosition = '200% 100%'
   }
 
   const handleLeave = (e) => {
     e.currentTarget.querySelector('.wave-underline').style.backgroundPosition = '0 0'
   }
+
+  const words = text.split(' ')
 
   return (
     <span
@@ -36,7 +38,12 @@ const WavyUnderline = ({ text }) => {
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
-      {text}
+      {words.map((word, index) => (
+        <span key={index}>
+          {word}
+          {index < words.length - 1 && ' '}
+        </span>
+      ))}
       <span className="wave-underline" style={underlineStyles}></span>
     </span>
   )
