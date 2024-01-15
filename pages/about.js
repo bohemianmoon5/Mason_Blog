@@ -11,11 +11,11 @@ export async function getStaticProps() {
 export default function About({ authorDetails }) {
   const { mdxSource, frontMatter } = authorDetails
 
-  const underlineStyles = {
+  const linkStyles = {
     position: 'relative',
     cursor: 'pointer',
     textDecoration: 'none',
-    display: 'inline-block', // Ensure the link behaves like a block element
+    display: 'inline-block',
   }
 
   const waveStyles = {
@@ -48,7 +48,7 @@ export default function About({ authorDetails }) {
     >
       <a
         href={frontMatter.github}
-        style={underlineStyles}
+        style={linkStyles}
         onMouseEnter={handleHover}
         onMouseLeave={handleLeave}
         target="_blank"
