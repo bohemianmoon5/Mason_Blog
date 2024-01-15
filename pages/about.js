@@ -13,8 +13,10 @@ export async function getStaticProps() {
 
   try {
     const introContent = await fs.readFile(introFilePath, 'utf8')
+    console.log('introContent:', introContent)
 
     const mergedMdxSource = `${authorDetails.mdxSource}\n\n${introContent}`
+    console.log('mergedMdxSource:', mergedMdxSource)
 
     return { props: { authorDetails: { ...authorDetails, mdxSource: mergedMdxSource } } }
   } catch (error) {
