@@ -11,8 +11,7 @@ export async function getStaticProps() {
 export default function About({ authorDetails }) {
   const { mdxSource, frontMatter } = authorDetails
 
-  const linkStyles = {
-    position: 'relative',
+  const underlineStyles = {
     cursor: 'pointer',
     textDecoration: 'none',
     display: 'inline-block',
@@ -40,23 +39,32 @@ export default function About({ authorDetails }) {
     e.currentTarget.querySelector('.wave-underline').style.backgroundPosition = '0 0'
   }
 
+  const applyWavyUnderline = (text) => {
+    return (
+      <span
+        className="word-with-underline"
+        style={underlineStyles}
+        onMouseEnter={handleHover}
+        onMouseLeave={handleLeave}
+      >
+        {text}
+        <span className="wave-underline" style={waveStyles}></span>
+      </span>
+    )
+  }
+
   return (
     <MDXLayoutRenderer
       layout={frontMatter.layout || DEFAULT_LAYOUT}
       mdxSource={mdxSource}
       frontMatter={frontMatter}
     >
-      <a
-        href={frontMatter.github}
-        style={linkStyles}
-        onMouseEnter={handleHover}
-        onMouseLeave={handleLeave}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {frontMatter.name}
-        <span className="wave-underline" style={waveStyles}></span>
-      </a>
+      <div>
+        {applyWavyUnderline('Java')}
+        {' and '}
+        {applyWavyUnderline('Python')}
+        {' are programming languages I am learning.'}
+      </div>
     </MDXLayoutRenderer>
   )
 }
