@@ -15,13 +15,14 @@ export default function About({ authorDetails }) {
     position: 'relative',
     cursor: 'pointer',
     textDecoration: 'none',
+    display: 'inline-block', // Ensure the link behaves like a block element
   }
 
   const waveStyles = {
     position: 'absolute',
     content: '""',
     height: '4px',
-    width: '100%', // Adjusted to cover the entire width
+    width: '100%',
     bottom: 0,
     left: 0,
     backgroundColor: 'transparent',
@@ -53,8 +54,8 @@ export default function About({ authorDetails }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span className="wave-underline" style={waveStyles}></span>
         {frontMatter.name}
+        <span className="wave-underline" style={waveStyles}></span>
       </a>
     </MDXLayoutRenderer>
   )
