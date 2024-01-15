@@ -41,7 +41,7 @@ const Guestbook = () => {
   return (
     <main className="container mx-auto p-4">
       <Head>
-        <title>Guestbook demo - MasonNa</title>
+        <title>Guestbook - MasonNa</title>
       </Head>
       <div className="mt-5 flex items-center p-2">
         <input
