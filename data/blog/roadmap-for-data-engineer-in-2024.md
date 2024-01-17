@@ -8,7 +8,7 @@ summary: This is roadmap for data engineer in 2024.
 
 올해 중점적으로 볼 요소들
 
-## 📌Programming languages
+# 📌Programming languages
 
 ```code
 
@@ -16,7 +16,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Databases
+# 📌Databases
 
 ```code
 
@@ -24,7 +24,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Data modeling
+# 📌Data modeling
 
 ```code
 
@@ -32,7 +32,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Cloud computing
+# 📌Cloud computing
 
 ```code
 
@@ -40,7 +40,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Big data technologies
+# 📌Big data technologies
 
 ```code
 
@@ -48,7 +48,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Data warehousing
+# 📌Data warehousing
 
 ```code
 
@@ -56,7 +56,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Data streaming
+# 📌Data streaming
 
 ```code
 
@@ -64,7 +64,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Data lakes and data meshes
+# 📌Data lakes and data meshes
 
 ```code
 
@@ -72,7 +72,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Orchestraction
+# 📌Orchestraction
 
 ```code
 
@@ -80,7 +80,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Data quality, data observability, and data governance
+# 📌Data quality, data observability, and data governance
 
 ```code
 
@@ -88,7 +88,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌Data visualization
+# 📌Data visualization
 
 ```code
 
@@ -96,7 +96,7 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 📌DevOps and data ops
+# 📌DevOps and data ops
 
 ```code
 
@@ -104,6 +104,6 @@ summary: This is roadmap for data engineer in 2024.
 
 ```
 
-## 🔰Develop good communication and collaboration skills
+# 🔰Develop good communication and collaboration skills
 
-## ♐️Stay updated and relevant with emerging trends
+# ♐️Stay updated and relevant with emerging trends
