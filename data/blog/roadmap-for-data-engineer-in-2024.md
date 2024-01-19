@@ -1,7 +1,7 @@
 ---
 title: 2024 데이터 엔지니어 로드맵
 date: '2024-01-16'
-tags: ['roadmap', 'data engineer', 'data', '2024', '로드맵', '데이터 엔지니어']
+tags: ['roadmap', 'data engineer', '2024 로드맵']
 draft: false
 summary: This is roadmap for data engineer in 2024.
 ---

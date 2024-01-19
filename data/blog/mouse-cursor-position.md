@@ -1,7 +1,7 @@
 ---
 title: 마우스 커서 좌표 구하기
 date: '2024-01-08'
-tags: ['mouse', 'cursor', 'position', '마우스 커서 좌표']
+tags: ['mouse', 'cursor', 'position']
 draft: false
 summary: To get position of mouse cursor.
 ---
