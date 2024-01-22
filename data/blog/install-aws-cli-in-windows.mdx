@@ -1,0 +1,40 @@
+---
+title: AWS CLI 설치
+date: '2024-01-20'
+tags: ['aws', 'cli', 'install']
+draft: false
+summary: 'How to install AWS CLI.'
+authors: ['default']
+---
+
+## Introduction
+
+로컬에서 AWS 접속 및 커맨드로 작업하기 위해 AWS CLI를 설치.
+
+## Method
+
+AWSCLIV2.msi 다운로드 > 명령 프롬프트 > 설치 커맨드 실행 및 버전 확인
+
+## Screen Shot
+
+### 1. 설명서 URL을 통해 AWSCLIV2.msi를 다운 받는다.
+
+https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html
+
+![aws_cli_screenshot01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/97701e6d-8005-4a5b-bdfb-d4d0f7886088)
+
+### 2. 명령 프롬프트를 실행하고 아래와 같은 명령어를 실행한다.
+
+![aws_cli_screenshot02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/db40367b-3387-4633-a55a-7808ce0a64f0)
+
+```ex
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+```
+
+![aws_cli_screenshot03](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/f4be8367-8e61-43da-a0a3-2a7b7c9e4198)
+
+```ex
+aws --version
+```
+
+AWS CLI 설치 확인이 완료되면 그 후에는 CLI를 통해 AWS 서비스를 활용할 수 있습니다.
