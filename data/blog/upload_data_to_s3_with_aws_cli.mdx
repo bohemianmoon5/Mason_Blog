@@ -1,0 +1,60 @@
+---
+title: AWS CLI 사용하여 S3로 파일 업로드
+date: '2024-01-23'
+tags: ['aws', 'cli', 'upload']
+draft: false
+summary: 'How to upload a file to Amazon S3 using the AWS CLI.'
+authors: ['default']
+---
+
+## Introduction
+
+추후 Snowflake에 file을 적재하기 위해 AWS CLI를 활용하여 S3에 File Upload.
+
+## Method
+
+명령 프롬프트 > COPY 커맨드 실행 및 리스트 확인
+
+## Screen Shot
+
+### 1. 명령 프롬프트를 열어 S3에 있는 파일 리스트를 확인한다.
+
+![scn_01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/46bb667b-015e-4d7e-bbf9-0d7bedee9018)
+
+```ex
+aws s3 ls s3://{bucket-name}
+```
+
+### 2. 파일 및 S3 경로를 확인하고 COPY 커맨드를 통해 File을 업로드 한다.
+
+![scn_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/caee4879-540a-439d-87d1-64f954f297b7)
+
+```ex
+aws s3 cp {filename} s3://{bucket-name}
+```
+
+### 3. S3의 파일 리스트를 확인한다.
+
+![scn_04](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/ad01c4ae-7381-444d-b262-7851aef60b1e)
+
+![scn_03](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/83855e13-123a-42a6-af31-f6f558a751bd)
+
+```ex
+aws s3 ls s3://{bucket-name}
+```
+
+* 폴더 업로드의 경우
+
+```ex
+aws s3 cp {directory-name} s3://{bucket-name}
+```
+
+** 자주 사용되는 옵션
+
+```ex
+acl : 액세스 권한 설정 ex) --acl private / public-read / public-read-write
+
+exclude / include : 필터링 ex) --exclude "*.txt" / --include "file*.txt"
+
+recursive : 디렉토리내 모든 파일 포함 ex) --recursive
+```
