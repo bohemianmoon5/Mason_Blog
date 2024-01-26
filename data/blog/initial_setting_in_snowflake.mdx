@@ -1,0 +1,58 @@
+---
+title: Snowflake 기본 세팅 및 테이블 생성
+date: '2024-01-26'
+tags: ['Snowflake', 'setting', 'table']
+draft: false
+summary: 'How to set up initially and create a table.'
+authors: ['default']
+---
+
+## Introduction
+
+Snowflake 계정 생성 후 기본적인 활용을 위한 기본 세팅 및 테이블 생성.
+
+## Method
+
+계정 로그인 > SQL Worksheet 생성 > 기본 세팅 > 테이블 생성
+
+## Screen Shot
+
+### 1. 화면 오른쪽에 위치한 플러스 버튼을 클릭해 SQL Worksheet를 생성한다.
+
+![cap_01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/c6cdf6aa-8853-404f-92c2-f7ed697e33f6)
+
+### 2. 자동으로 생성된 SQL Worksheet 이름을 더블 클릭해 이름을 변경한다.
+
+![cap_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/440c909f-a7a0-4f01-b066-f99f84f450ca)
+
+### 3. 명령어를 활용하여 Database, Schema, Warehouse를 생성한다.
+
+![cap_03](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/3bd40d24-3d51-4555-ab08-73f5f91d2249)
+
+```ex
+CREATE DATABASE db_test; -- 데이터베이스 생성
+USE DATABASE db_test; -- db_test 사용
+
+CREATE SCHEMA data; -- 스키마 생성
+USE SCHEMA data; -- data 사용
+
+CREATE WAREHOUSE test_wh; -- 웨어하우스 생성
+```
+
+### 4. 테이블을 생성하고 조회해본다.
+
+![cap_04](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/054d686d-104e-4acb-aa19-068c8ccb163a)
+
+```ex
+USE DATABASE db_test; -- db_test 사용(데이터베이스)
+USE SCHEMA data; -- data 사용(스키마)
+USE WAREHOUSE test_wh; test_wh 사용(웨어하우스)
+
+CREATE OR REPLACE TABLE member (id number(3), name varchar(10), position varchar(10), reg_date date); -- 테이블 생성
+
+... -- insert한 데이터 생략
+
+SELECT * FROM member; -- 테이블 조회
+```
+
+기본적인 세팅 및 테이블 생성이 완료 되었습니다.
