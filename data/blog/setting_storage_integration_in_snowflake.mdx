@@ -1,0 +1,158 @@
+---
+title: Snowflake Storage Integration 구성 - AWS S3 연결
+date: '2024-01-30'
+tags: ['Snowflake', 'setting', 'storage integration']
+draft: false
+summary: 'How to set up storage integration in Snowflake.'
+authors: ['default']
+---
+
+## Introduction
+
+AWS S3에 있는 데이터를 다루기 위해 Storage Integration을 구성. Integration을 구성하면 추후 External Stage를 구성할 때 일일이 자격 증명을 할 필요가 없다.
+
+## Method
+
+AWS IAM 정책 생성 > 역할 생성 및 권한 추가 > Snowflake Storage Integration 생성 > 역할 trust relationship 수정 > External Stage 생성
+
+## Screen Shot
+
+### 1. AWS IAM 정책 생성.
+
+![cap_01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/872a50d1-93ac-45be-94b7-03aebe86dab6)
+
+```ex
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:GetObjectVersion",
+              "s3:DeleteObject",
+              "s3:DeleteObjectVersion"
+            ],
+            "Resource": "arn:aws:s3:::<bucket>/<prefix>/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::<bucket>",
+            "Condition": {
+                "StringLike": {
+                    "s3:prefix": [
+                        "<prefix>/*"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+### 2. AWS IAM 역할 생성 및 권한 추가 (역할을 생성할 때 권한 추가 가능).
+
+[역할 생성시 "외부 ID 필요" 옵션 체크 필요!]
+![cap_02_04](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/cc5537f2-9d46-494e-a20a-e73e17fc92a1)
+
+[AWS IAM 역할 예시]
+![cap_02_01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/9827330f-b05c-48da-9ad8-141f0bdc4774)
+
+![cap_02_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/90f861d5-9d5e-4457-b649-d370b02b4b89)
+
+[신뢰 관계 필요 설정은 Snowflake Storage Integration 생성 후 해당 정보를 얻을 수 있음]
+![cap_02_03](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/45e112f9-9bf2-41dd-850d-80d0f5e53728)
+
+```ex
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "<snowflake_user_arn>"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "<snowflake_external_id>"
+        }
+      }
+    }
+  ]
+}
+```
+
+### 3. Snowflake Storage Integration 생성.
+
+![cap_03](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/dfdc3eac-7936-4d39-992b-d03b4b190b9c)
+
+```ex
+CREATE STORAGE INTEGRATION <integration_name>
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = 'S3'
+  ENABLED = TRUE
+  STORAGE_AWS_ROLE_ARN = '<iam_role>'
+  STORAGE_ALLOWED_LOCATIONS = ('s3://<bucket>/<path>/', 's3://<bucket>/<path>/')
+  [ STORAGE_BLOCKED_LOCATIONS = ('s3://<bucket>/<path>/', 's3://<bucket>/<path>/') ]
+```
+
+### 4. 역할 trust relationship 수정.
+
+[명령어를 통해 Storage Integration의 정보를 확인]
+![cap_04_01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/19b1a8a4-71f0-411d-8009-dc81f1a2abed)
+
+```ex
+DESC INTEGRATION <integration_name>;
+```
+
+[trust relationship(신뢰 관계)을 수정 - 예시 링크에서는 StringEquals를 Condition 조건으로 사용했지만, 이번 구성은 StringLike를 적용]
+![cap_04_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/1b749214-3ecf-4503-8c14-9678af1a932f)
+
+```ex
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "<snowflake_user_arn>"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "<snowflake_external_id>"
+        }
+      }
+    }
+  ]
+}
+```
+
+### 5. External Stage 생성.
+
+[External Stage 생성]
+![cap_05](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/733d18ee-847d-4264-ae38-714148179b7e)
+
+```ex
+CREATE STAGE my_s3_stage
+  STORAGE_INTEGRATION = <integration_name>
+  URL = 's3://<bucket>/<path>/'
+  FILE_FORMAT = <format_name>;
+```
+
+[List 조회]
+![cap_05_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/61bab973-fd82-4225-8ba4-fb83ffe94df3)
+
+```ex
+LIST @<stage_name>;
+```
+
+Snowflake에서 S3 데이터를 다룰 준비가 완료 되었습니다.
