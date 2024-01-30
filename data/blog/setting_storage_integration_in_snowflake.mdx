@@ -57,15 +57,15 @@ AWS IAM 정책 생성 > 역할 생성 및 권한 추가 > Snowflake Storage Inte
 
 ### 2. AWS IAM 역할 생성 및 권한 추가 (역할을 생성할 때 권한 추가 가능).
 
-[역할 생성시 "외부 ID 필요" 옵션 체크 필요!]
+`[역할 생성시 "외부 ID 필요" 옵션 체크 필요!]`
 ![cap_02_04](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/cc5537f2-9d46-494e-a20a-e73e17fc92a1)
 
-[AWS IAM 역할 예시]
+`[AWS IAM 역할 예시]`
 ![cap_02_01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/9827330f-b05c-48da-9ad8-141f0bdc4774)
 
 ![cap_02_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/90f861d5-9d5e-4457-b649-d370b02b4b89)
 
-[신뢰 관계 필요 설정은 Snowflake Storage Integration 생성 후 해당 정보를 얻을 수 있음]
+`[신뢰 관계 필요 설정은 Snowflake Storage Integration 생성 후 해당 정보를 얻을 수 있음]`
 ![cap_02_03](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/45e112f9-9bf2-41dd-850d-80d0f5e53728)
 
 ```ex
@@ -105,14 +105,14 @@ CREATE STORAGE INTEGRATION <integration_name>
 
 ### 4. 역할 trust relationship 수정.
 
-[명령어를 통해 Storage Integration의 정보를 확인]
+`[명령어를 통해 Storage Integration의 정보를 확인]`
 ![cap_04_01](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/19b1a8a4-71f0-411d-8009-dc81f1a2abed)
 
 ```ex
 DESC INTEGRATION <integration_name>;
 ```
 
-[trust relationship(신뢰 관계)을 수정 - 예시 링크에서는 StringEquals를 Condition 조건으로 사용했지만, 이번 구성은 StringLike를 적용]
+`[trust relationship(신뢰 관계)을 수정 - 예시 링크에서는 StringEquals를 Condition 조건으로 사용했지만, 이번 구성은 StringLike를 적용]`
 ![cap_04_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/1b749214-3ecf-4503-8c14-9678af1a932f)
 
 ```ex
@@ -138,7 +138,7 @@ DESC INTEGRATION <integration_name>;
 
 ### 5. External Stage 생성.
 
-[External Stage 생성]
+`[External Stage 생성]`
 ![cap_05](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/733d18ee-847d-4264-ae38-714148179b7e)
 
 ```ex
@@ -148,7 +148,7 @@ CREATE STAGE my_s3_stage
   FILE_FORMAT = <format_name>;
 ```
 
-[List 조회]
+`[List 조회]`
 ![cap_05_02](https://github.com/bohemianmoon5/Mason_Blog/assets/65845572/61bab973-fd82-4225-8ba4-fb83ffe94df3)
 
 ```ex
