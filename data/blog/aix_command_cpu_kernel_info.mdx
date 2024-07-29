@@ -1,0 +1,41 @@
+---
+title: AIX에서 커널 정보 및 CPU 코어 정보 확인
+date: '2024-07-29'
+tags: ['OS', 'AIX', 'Command']
+draft: false
+summary: 'How to check Kernel and CPU core information on AIX'
+authors: ['default']
+---
+
+## 📝 Introduction
+
+AIX에서 커널 정보 및 CPU 코어 정보를 명령어로 확인하는 방법.
+
+## 🚀 Method
+
+1. 커널 정보 확인
+
+```ex 💻
+uname -an
+결과 예시 : AIX hostname 1 7 00FFFFFFFFFF IBM
+
+oslevel -s
+결과 예시 : 6100-04-09-1112
+```
+
+2. CPU 코어 정보 확인
+
+```ex 💻
+*물리코어수 : 2개
+lsdev -Cc processor
+결과 예시 : proc0 Available 00-00 Processor
+           proc8 Available 00-08 Processor
+
+*논리코어수 : 8개
+bindprocessor -q
+결과 예시 : The available processor are : 0 1 2 3 4 5 6 7
+```
+
+## ❓ RHEL Linux와 명령어가 같은가?
+
+명령어가 다르기 때문에 다른 명령어로 정보를 확인할 수 있다.
