@@ -32,7 +32,7 @@ export default function Home({ posts }) {
     typed.current = new Typed(el.current, options)
 
     return () => {
-      if(typed.current === 'function') {
+      if (typed.current === 'function') {
         typed.current.destory()
       }
     }
