@@ -156,7 +156,7 @@ export default function Home({ posts }) {
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
-            <img
+              <img
                 src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=FFFFFF"
                 alt="Docker Badge"
               />
