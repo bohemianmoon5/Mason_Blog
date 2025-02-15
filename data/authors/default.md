@@ -1,6 +1,6 @@
 ---
 name: Mason Na
-avatar: /static/images/Mason.JPG
+avatar: /static/images/memoji02.png
 occupation: Data Engineer
 company: Dongkuk Systems
 email: bohemianmoon5@gmail.com
