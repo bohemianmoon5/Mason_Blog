@@ -149,6 +149,18 @@ export default function Home({ posts }) {
                 alt="Git Badge"
               />
             </span>
+            <span className="mr-3 inline-block whitespace-nowrap pt-3">
+              <img
+                src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=Airflow&logoColor=FFFFFF"
+                alt="Airflow Badge"
+              />
+            </span>
+            <span className="mr-3 inline-block whitespace-nowrap pt-3">
+            <img
+                src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=FFFFFF"
+                alt="Docker Badge"
+              />
+            </span>
           </p>
         </section>
 
