@@ -27,11 +27,17 @@ export default function Home({ posts }) {
   React.useEffect(() => {
     const options = {
       strings: ['I love running 🏃‍♂️', 'I love movies 🎬', 'I love music 🎵', 'I love myself 💜'],
-      typespeed: 100,
-      backspeed: 70,
+      typeSpeed: 50,
+      backSpeed: 20,
+      backDelay: 1000,
+      startDelay: 500,
       loop: true,
       showCursor: true,
       cursorChar: '|',
+      smartBackspace: false,
+      // fadeOut: true,
+      // fadeOutClass: "typed-fade-out",
+      // fadeOutDelay: 1000,
     }
 
     typed.current = new Typed(el.current, options)
