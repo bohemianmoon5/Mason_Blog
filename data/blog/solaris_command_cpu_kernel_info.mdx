@@ -1,0 +1,43 @@
+---
+title: Solaris에서 커널 정보 및 CPU 코어 정보 확인
+date: '2025-04-11'
+tags: ['OS', 'Solaris', 'Command']
+draft: false
+summary: 'How to check Kernel and CPU core information on Solaris'
+authors: ['default']
+---
+
+## 📝 Introduction
+
+Solaris에서 커널 정보 및 CPU 코어 정보를 명령어로 확인하는 방법.
+
+## 🚀 Method
+
+1. 커널 정보 확인
+
+```ex 💻
+uname -a
+결과 예시 : SunOS solaris 5.11 11.1 sun4v sparc SUNW,T5240
+```
+
+2. CPU 코어 정보 확인
+
+```ex 💻
+*소켓정보 : 2개
+echo "`psrinfo -p` socket(s)"
+결과 예시 : 2 socket(s)
+
+*물리코어수 : 8개
+echo "`kstat -m cpu_info|grep -w core_id|uniq|wc -l` core(s)
+결과 예시 : 8 core(s)
+
+*논리코어수 : 64개
+echo "`psrinfo|wc -l` logical (virtual) processor(s)"
+결과 예시 : 64 logical (virtual) processor(s)
+```
+
+3. ❓ 그외 명령어 (디렉토리 용량 확인)
+
+```ex 💻
+df -k or -h
+```
