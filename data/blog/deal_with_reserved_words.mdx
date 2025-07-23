@@ -1,0 +1,70 @@
+---
+title: 테이블 이름 및 컬럼명을 예약어로 사용했을 때 해결방안
+date: '2024-02-22'
+tags: ['Informatica', 'PowerCenter']
+draft: false
+summary: 'How to Handle Reserved Words in PowerCenter'
+authors: ['default']
+---
+
+<div align="center">
+
+# 🧠 오늘의 주제  
+## 📘 _테이블 이름 및 컬럼명이 예악어일 때 세션 오류 해결 방안_
+
+</div>
+
+---
+
+## 📍 들어가며
+
+이 글에서는 다음과 같은 내용을 다룹니다:
+
+- ✅ 예약어 사용으로 인한 세션 오류 원인  
+- ✅ 세션 오류 해결 방안
+
+---
+
+## 🧩 배경: 왜 이 주제가 중요할까?
+
+- 간단한 방법으로 세션 오류 해결 가능
+
+📌 **핵심 키워드**: `reswords.txt`
+
+---
+
+## 🚀 본론: 세션 오류 원인 및 해결 방안
+
+### ⚙️ Step 1 - 세션 오류 원인
+
+```ex 💻
+# 예약어를 테이블 이름 혹은 컬럼명으로 그대로 사용하기 위해서는 "" 처리가 필요하다. "" 처리가 안 된 상태로 쿼리가 실행되었을 때, ORA-00904 : 부적합한 식별자 invalid identifier 에러가 발생한다.
+
+# 예시
+SELECT "date" FROM member; 
+```
+
+### 🛠️ Step 2 - 해결 방안
+
+```ex 💻
+# reswords.txt 설정을 통해 오류 해결이 가능하다. 설정 경로는 $INFA_HOME/server/bin 디렉토리이다.
+
+# 설정 예시(reswords.txt)
+[Teradata]
+MONTH
+DATE
+INTERVAL
+[Oracle]
+OPTION
+START
+[DB2]
+[SQL Server]
+CURRENT
+[Informix]
+[ODBC] 
+MONTH
+[Sybase]
+```
+
+## 🧭 참고 자료
+https://docs.informatica.com/data-integration/powercenter/10-5/workflow-basics-guide/targets/working-with-relational-targets/reserved-words/sample-reswords-txt-file.html
