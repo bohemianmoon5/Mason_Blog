@@ -125,7 +125,7 @@ export default function Home({ posts }) {
 
         {/* Tech Stack */}
         <section className="mx-auto max-w-4xl px-6">
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Tech Stack</h2>
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Tech Stack</h2>
           <p className="dark:text-grey text-gray mb-8   mt-4 text-sm">
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
