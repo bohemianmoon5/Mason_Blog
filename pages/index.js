@@ -73,98 +73,131 @@ export default function Home({ posts }) {
           </p>
         </section>
 
+        {/* Certificates Section */}
+        <section className="mx-auto max-w-4xl px-6">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8">Certifications</h2>
+
+          {/* 첫째 줄 */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center">
+            <img src="/static/images/CDGC_Modernization_Certification_2025.png" className="h-[260px] object-contain" />
+            <img src="/static/images/CDQ_Implementation_Certification_2025.png" className="h-[260px] object-contain" />
+            <img src="/static/images/CAI_Implementation_Certification_2025.png" className="h-[260px] object-contain" />
+          </div>
+
+          {/* 둘째 줄 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center mt-8">
+            <img src="/static/images/CDI_R38_professional_certification-removebg.png" className="h-[240px] object-contain" />
+            <img src="/static/images/SnowPro_core_certification.png" className="h-[240px] object-contain" />
+          </div>
+        </section>
+
         {/* Tech Stack */}
         <section className="mx-auto max-w-4xl px-6">
-          <h2 className="text-xl leading-8 tracking-tight">Enjoy finding and solving problems.</h2>
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Tech Stack</h2>
           <p className="dark:text-grey text-gray mb-8   mt-4 text-sm">
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=FFFFFF"
                 alt="Java Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=FFFFFF"
                 alt="Python Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=Oracle&logoColor=FFFFFF"
                 alt="Oracle Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=PostgreSQL&logoColor=FFFFFF"
                 alt="PostgreSQL Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=FFFFFF"
                 alt="MySQL Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=FFFFFF"
                 alt="JavaScript Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=AWS&logoColor=FFFFFF"
                 alt="AWS Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/GoogleBigquery-669DF6?style=flat-square&logo=GoogleBigquery&logoColor=FFFFFF"
                 alt="GoogleBigquery Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Informatica-FF4D00?style=flat-square&logo=Informatica&logoColor=FFFFFF"
                 alt="Informatica Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=Snowflake&logoColor=FFFFFF"
                 alt="Snowflake Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=FFFFFF"
                 alt="Next.js Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=FFFFFF"
                 alt="SpringBoot Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=FFFFFF"
                 alt="Git Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=Airflow&logoColor=FFFFFF"
                 alt="Airflow Badge"
+                className="h-6"
               />
             </span>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">
               <img
                 src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=FFFFFF"
                 alt="Docker Badge"
+                className="h-6"
               />
             </span>
           </p>
