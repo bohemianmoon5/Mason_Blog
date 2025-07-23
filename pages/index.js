@@ -80,7 +80,7 @@ export default function Home({ posts }) {
           </h2>
 
           {/* 첫째 줄 */}
-          <div className="justify-items-center gap-6 sm:grid-cols-3 grid grid-cols-1">
+          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-3">
             <Image
               src="/static/images/CDGC_Modernization_Certification_2025.png"
               alt="CDGC Modernization Certification 2025"
@@ -105,7 +105,7 @@ export default function Home({ posts }) {
           </div>
 
           {/* 둘째 줄 */}
-          <div className="mt-0 justify-items-center gap-6 sm:grid-cols-2 grid grid-cols-1">
+          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2">
             <Image
               src="/static/images/CDI_R38_professional_certification-removebg.png"
               alt="CDI R38 Professional Certification"
