@@ -75,19 +75,51 @@ export default function Home({ posts }) {
 
         {/* Certificates Section */}
         <section className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8">Certifications</h2>
+          <h2 className="mb-8 text-3xl font-bold text-gray-800 dark:text-gray-100">
+            Certifications
+          </h2>
 
           {/* 첫째 줄 */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center">
-            <img src="/static/images/CDGC_Modernization_Certification_2025.png" className="h-[260px] object-contain" />
-            <img src="/static/images/CDQ_Implementation_Certification_2025.png" className="h-[260px] object-contain" />
-            <img src="/static/images/CAI_Implementation_Certification_2025.png" className="h-[260px] object-contain" />
+          <div className="justify-items-center gap-6 sm:grid-cols-3 grid grid-cols-1">
+            <Image
+              src="/static/images/CDGC_Modernization_Certification_2025.png"
+              alt="CDGC Modernization Certification 2025"
+              width={260}
+              height={260}
+              className="object-contain"
+            />
+            <Image
+              src="/static/images/CDQ_Implementation_Certification_2025.png"
+              alt="CDQ Implementation Certification 2025"
+              width={260}
+              height={260}
+              className="object-contain"
+            />
+            <Image
+              src="/static/images/CAI_Implementation_Certification_2025.png"
+              alt="CAI Implementation Certification 2025"
+              width={260}
+              height={260}
+              className="object-contain"
+            />
           </div>
 
           {/* 둘째 줄 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center mt-8">
-            <img src="/static/images/CDI_R38_professional_certification-removebg.png" className="h-[240px] object-contain" />
-            <img src="/static/images/SnowPro_core_certification.png" className="h-[240px] object-contain" />
+          <div className="mt-0 justify-items-center gap-6 sm:grid-cols-2 grid grid-cols-1">
+            <Image
+              src="/static/images/CDI_R38_professional_certification-removebg.png"
+              alt="CDI R38 Professional Certification"
+              width={400}
+              height={400}
+              className="object-contain"
+            />
+            <Image
+              src="/static/images/SnowPro_core_certification.png"
+              alt="SnowPro Core Certification"
+              width={280}
+              height={280}
+              className="object-contain"
+            />
           </div>
         </section>
 
