@@ -1,0 +1,56 @@
+---
+title: Informatica Administrator 세션 만료 시간 변경 방법
+date: '2024-03-07'
+tags: ['Informatica', 'PowerCenter']
+draft: false
+summary: 'How to set Informatica Administrator session timeout'
+authors: ['default']
+---
+
+<div align="center">
+
+# 🧠 오늘의 주제  
+## 📘 Informatica Administrator 세션 만료 시간 변경 방법
+
+</div>
+
+---
+
+## 📍 들어가며
+
+이 글에서는 다음과 같은 내용을 다룹니다:
+
+- ✅ Informatica Administrator 세션 만료 시간 변경 방법
+
+---
+
+## 🧩 배경: 왜 이 주제가 중요할까?
+
+- 기본 값이 30분으로 설정되어 있기 때문에 더 짧은 시간을 설정하려면 수정이 필요합니다.
+
+📌 **핵심 키워드**: `session-timeout`
+
+---
+
+## 🚀 본론: Informatica Administrator 세션 만료 시간 변경 방법
+
+### 🛠️ Step 1 - Informatica Administrator 세션 만료 시간 변경 방법
+
+```ex 💻
+# 파일 경로 : $INFA_HOME/services/AdministratorConsole/webapps/administrator/WEB-INF/web.xml
+# /session-timeout 검색 필요
+
+# 설정 예시
+<session-config>
+    <session-timeout>120</session-timeout>
+</session-config>
+
+# 수정 후 Informatica 서비스를 재시작해야 합니다.
+```
+
+## 📋 결론
+
+- 간단한 방법으로 Informatica Administrator 세션 만료 시간 변경이 가능합니다.
+
+## 🧭 참고 자료
+https://knowledge.informatica.com/s/article/122684?language=en_US&type=external
