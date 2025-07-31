@@ -66,9 +66,14 @@ export default function Home({ posts }) {
             Hi, I'm <span className="text-primary-500">Mason Na</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-gray-500 dark:text-gray-400">
-            Currently working as a Data Engineer.<br/><br/>  
-            안녕하세요. 나문오입니다.<br/>
-            저는 현재 동국시스템즈에서 데이터 엔지니어로 일하고 있습니다.<br/><br/>
+            Currently working as a Data Engineer.
+            <br />
+            <br />
+            안녕하세요. 나문오입니다.
+            <br />
+            저는 현재 동국시스템즈에서 데이터 엔지니어로 일하고 있습니다.
+            <br />
+            <br />
           </p>
           <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
             <span ref={el}></span>
