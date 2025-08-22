@@ -49,7 +49,7 @@ authors: ['default']
 # Tomcat Cleanup 방법
 
 1. Informatica Service Shutdown (명령어 예시 : pcstop($INFA_HOME/server/tomcat/bin/infaservice.sh shutdown))
-2. *.war 파일을 제외한 아래 디렉토리 삭제
+2. *.war 파일을 제외한 아래 디렉토리 삭제 (war 파일이 있을 경우, 해당 디렉토리 안 war 파일을 제외하고 디렉토리를 삭제)
 - $INFA_HOME/tomcat/work/
 - $INFA_HOME/tomcat/temp/
 - $INFA_HOME/isp/webapps/ (war 파일은 제외)
