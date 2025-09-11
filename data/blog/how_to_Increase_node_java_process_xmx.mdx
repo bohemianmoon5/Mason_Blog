@@ -1,0 +1,90 @@
+---
+title: 인포매티카 파워센터 Maximum Heap Size 최적 설정 가이드
+date: '2024-03-22'
+tags: ['Informatica', 'PowerCenter']
+draft: false
+summary: 'How to optimally set the Maximum Heap Size for a domain'
+authors: ['default']
+---
+
+<div align="center">
+
+# 🧠 오늘의 주제  
+## 📘 인포매티카 파워센터 Maximum Heap Size 최적 설정 가이드
+
+</div>
+
+---
+
+## 📍 들어가며
+
+이 글에서는 다음과 같은 내용을 다룹니다:
+
+- ✅ 도메인 유저 및 사용 서비스 기준, Maximum Heap Size 최적 설정 가이드
+
+---
+
+## 🧩 배경: 왜 이 주제가 중요할까?
+
+- 도메인 유저 및 사용 서비스 기준으로 Maximum Heap Size를 최적으로 설정하여 메모리를 효율적으로 관리합니다.
+
+📌 **핵심 키워드**: `Maximum Heap Size`
+
+---
+
+## 🚀 본론: 도메인 유저 및 사용 서비스 기준, Maximum Heap Size 최적 설정 가이드
+
+### ⚙️ Step 1 - Maximum Heap Size 설정이 필요한 경우
+
+```ex 💻
+# 설정이 필요한 경우
+
+- 메모리 부족 오류 발생 (java.lang.OutOfMemoryError: Java heap space), 세션 및 워크플로우 실패, 성능 저하, 시스템 불안정
+```
+
+### 🛠️ Step 2 - 도메인 유저 및 사용 서비스 기준, Maximum Heap Size 최적 설정 가이드
+
+```ex 💻
+# 도메인 유저 및 사용 서비스 기준
+
+Number of Domain Users | Maximum Heap Size (1-5 Services) | Maximum Heap Size (6-10 Services)
+
+1,000 or less | 512 MB (default) | 1024 MB
+
+5,000 | 2048 MB | 3072 MB
+
+10,000 | 3072 MB | 5120 MB
+
+20,000 | 5120 MB | 6144 MB
+
+30,000 | 5120 MB | 6144 MB
+```
+
+### ✅ Step 3 - Maximum Heap Size 설정 방법
+
+```ex 💻
+
+1. Informatica 서비스를 Shutdown 합니다. ($INFA_HOME/server/tomcat/bin/infaservice.sh shutdown)
+2. 적용 파일 이름 : $INFA_HOME/tomcat/bin/infaservice.sh
+3. vi infaservice.sh 명령어를 통해 편집창으로 들어가 -Xmx를 찾습니다.
+4. INFA_JAVA_OPTS="-Xmx1024m ${INFA_JAVA_OPTS} -XX:MaxMetaspaceSize=256m" 에서 -Xmx 값을 수정합니다.
+5. 편집창을 wq! 명령어를 통해 닫고, Informatica 서비스를 Start 합니다. ($INFA_HOME/server/tomcat/bin/infaservice.sh startup)
+6. ps -fu <uid> | grep "java -ea" 명령어로 Maximum Heap Size 적용 확인
+
+$INFA_HOME/java/bin/java -ea -Djava.security.krb5.conf=/home/app/informatica/PWC/services/shared/security/krb5.conf 
+-Dorg.apache.catalina.connector.RECYCLE_FACADES=true -Djava.awt.headless=true -Duser.dir=/home/app/informatica/PWC/tomcat/bin 
+-DINFA_PLUGINS_HOME=/home/app/informatica/PWC/plugins -DINFA_HOME=/home/app/informatica/PWC -Dinfa.useNonPooledUUMAuthenticator 
+-DINFA_DOMAINS_FILE=/home/app/informatica/PWC/domains.infa -Djava.endorsed.dirs= 
+-classpath :/home/app/informatica/PWC/tomcat9/bin/bootstrap.jar:/home/app/informatica/PWC/tomcat9/bin/tomcat-juli.jar:/home/app/informatica/PWC/services/shared/jars/platform/infatomcatbootstrap.jar 
+-Dcatalina.base=/home/app/informatica/PWC/tomcat -Dcatalina.home=/home/app/informatica/PWC/tomcat9 -Djava.io.tmpdir=/home/app/informatica/PWC/tomcat/temp 
+-Djava.util.logging.config.file=/home/app/informatica/PWC/tomcat/bin/isplogging.properties -XX:GCTimeRatio=9 -XX:+DisableExplicitGC -XX:+UseG1GC -XX:MaxGCPauseMillis=500 
+-XX:MaxGCPauseMillis=500 -Xmx1024m -XX:MaxMetaspaceSize=256m -XX:+HeapDumpOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError com.informatica.isp.tools.tomcatstarter.ISPTomcatBootstrap start
+
+```
+
+## 📋 결론
+
+- infaservice.sh을 편집할 때 주의해야 하지만 비교적 쉽게 Maximum Heap Size를 조정해 관리할 수 있다.
+
+## 🧭 참고 자료
+https://knowledge.informatica.com/s/article/577128?language=en_US&type=external
