@@ -1,0 +1,53 @@
+---
+title: AIX 환경에서 memory leak 확인
+date: '2024-04-01'
+tags: ['Informatica', 'PowerCenter']
+draft: false
+summary: 'How to check memory leak on AIX'
+authors: ['default']
+---
+
+<div align="center">
+
+# 🧠 오늘의 주제  
+## 📘 AIX 환경에서 memory leak 확인
+
+</div>
+
+---
+
+## 📍 들어가며
+
+이 글에서는 다음과 같은 내용을 다룹니다:
+
+- ✅ AIX 환경에서 memory leak을 확인하기 위한 설정 방안
+
+---
+
+## 🧩 배경: 왜 이 주제가 중요할까?
+
+- memory leak 관리 및 운영 환경 영향 최소화
+
+📌 **핵심 키워드**: `MALLOCDEBUG`
+
+---
+
+## 🚀 본론: AIX 환경에서 memory leak을 확인하기 위한 설정 방안
+
+### ✅ Step 1 - 설정 방안
+
+```ex 💻
+# 환경 변수 설정
+
+- ex) export MALLOCDEBUG=report_allocations,stack_depth:20,output:leak_mem
+- report_allocations: 모든 메모리 할당 내역 추적
+- output: 출력 파일 이름
+- stack_depth: 호출 스택 단계 설정
+```
+
+## 📋 결론
+
+- 간단한 환경변수 설정으로 memory leak을 관리하고 서비스를 운영하는데 도움을 줄 수 있다.
+
+## 🧭 참고 자료
+https://knowledge.informatica.com/s/article/How-To-check-memory-leak-in-AIX-process?language=en_US&type=external
