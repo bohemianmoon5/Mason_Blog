@@ -1,0 +1,82 @@
+---
+title: PowerCenter Repository Log 테이블 관리
+date: '2024-04-11'
+tags: ['Informatica', 'PowerCenter']
+draft: false
+summary: 'How to manage Informatica log table'
+authors: ['default']
+---
+
+<div align="center">
+
+# 🧠 오늘의 주제  
+## 📘 PowerCenter Repository Log 테이블 관리
+
+</div>
+
+---
+
+## 📍 들어가며
+
+이 글에서는 다음과 같은 내용을 다룹니다:
+
+- ✅ PowerCenter Repository Log 테이블 관리의 필요성 및 관리 방안
+
+---
+
+## 🧩 배경: 왜 이 주제가 중요할까?
+
+- 오랜 기간 PowerCenter Repository Log 테이블을 관리하지 않으면, 디스크 공간을 과도하게 차지하고 전체 DB 인스턴스의 성능 저하를 유발하는 이슈가 발생할 수 있습니다.
+
+📌 **핵심 키워드**: `Repository Log`
+
+---
+
+## 🚀 본론: PowerCenter Repository Log 테이블 관리의 필요성 및 관리 방안
+
+### ✅ Step 1 - 필요성 및 관리 방안
+
+```ex 💻
+# 발생 이슈
+
+- Oracle replication 기능 활성화 및 Repository가 매우 활발히 사용되며 오랜 기간 관리가 이루어지지 않은 경우, 대량의 아카이브 로그 파일이 생성될 수 있습니다.
+
+# 관리 방안
+
+- 성능 통계(performance stats) 저장 주기 단축 또는 비활성화
+- 과거 세션 로그의 주기적 삭제
+- 동일 객체에 대한 다수의 리비전(revisions) 보관 금지
+- 서비스 및 세션에 대한 추가 트레이싱(tracing) 비활성화
+- 동시 실행 워크플로우 수 최소화
+- pmrep truncatelog 및 pmrep UpdateStatistics 명령어를 정기적으로 실행
+
+# PowerCenter 로그/성능/잠금 관련 테이블 리스트
+
+OPB_PF_COUNT_IDX2
+OPB_OBJLOCKS2
+OPB_PF_COUNT_IDX
+OPB_OBJECT_LOCKS
+OPB_SWIDGINST_LOG
+OPB_PERF_COUNT
+OPB_SWINSTLG_IDX
+OPB_CLIENT_CONN
+OPB_TASK_INST_RUN
+OPB_OBJLOCKS1
+OPB_DTL_SWIDG_LOG
+OPB_REQREPLY1
+OPB_SERVREQ1
+OPB_REQREPLY2
+OPB_SERVREQ2
+OPB_SERVICED_REQ
+OPB_REQ_REPLY
+INFP_PROD_DOM
+ISP_RUN_LOG_INDEX
+ISP_RUN_LOG
+```
+
+## 📋 결론
+
+- 주기적인 관리를 통해 대량의 아카이브 로그 파일 생성 및 성능 저하를 방지할 수 있습니다.
+
+## 🧭 참고 자료
+https://knowledge.informatica.com/s/article/500622?language=en_US&type=external
