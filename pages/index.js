@@ -1,281 +1,358 @@
 import React from 'react'
-import Typed from 'typed.js'
 import Image from 'next/image'
-// import Link from '@/components/Link'
+import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
-// import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import projectsdata from '@/data/projectsData'
-import Card from '@/components/Card'
 import projectsData from '@/data/projectsData'
-// import { getAllFilesFrontMatter } from '@/lib/mdx'
-// import formatDate from '@/lib/utils/formatDate'
 
 const experiences = [
-  { year: '2021 ~', title: 'Data Engineer', description: 'Working in the Dongkuk Systems.' },
+  {
+    year: '2021 — 현재',
+    role: 'Data Engineer',
+    company: '동국시스템즈 (Dongkuk Systems)',
+    desc: '엔터프라이즈 고객사의 데이터 웨어하우스 클라우드 전환 프로젝트 다수 수행. Snowflake 기반 분석 환경 구축, Informatica를 활용한 ETL 파이프라인 설계 및 최적화, 데이터 거버넌스 체계 수립을 주도적으로 담당.',
+    tags: ['Snowflake', 'Informatica', 'AWS', 'BigQuery', 'Airflow', 'Python'],
+  },
   {
     year: '2021',
-    title: 'MSA Full-Stack developer course',
-    description: 'Build various Web-Service and Big Web Service with java.',
+    role: 'MSA Full-Stack Developer Course',
+    company: '교육 수료',
+    desc: 'Java 기반 마이크로서비스 아키텍처 및 대용량 웹 서비스 설계·개발 학습. Spring Boot, Oracle DB, 클라우드 배포 실습을 통해 백엔드 기반 역량 형성.',
+    tags: ['Java', 'Spring Boot', 'Oracle', 'MySQL'],
   },
 ]
 
-export default function Home({ posts }) {
-  const el = React.useRef(null)
-  const typed = React.useRef(null)
+const projects = [
+  {
+    client: '현대홈쇼핑 · 2023',
+    name: 'Snowflake 차세대 분석 환경 구축',
+    desc: '기존 On-Premise 레거시 환경을 Snowflake 기반 클라우드 데이터 플랫폼으로 전환. Informatica IDMC를 활용한 ETL 파이프라인 설계, 데이터 거버넌스 정책 수립, 분석 워크로드 최적화.',
+    tags: ['Snowflake', 'Informatica IDMC', 'AWS S3', 'Python', 'SQL'],
+    href: 'https://github.com/bohemianmoon5/Hyundai_Homeshopping_Snowflake_Project',
+    badge: 'ENTERPRISE',
+    imgSrc: '/static/images/project5.jpg',
+    featured: true,
+  },
+  {
+    client: 'LG U+ · 2022',
+    name: '금융마이데이터 분석 환경 구축',
+    desc: '금융마이데이터와 고객행동 데이터를 결합하여 Snowflake 기반 마케팅 분석 플랫폼 구축. 대고객 마케팅 고도화를 위한 데이터 파이프라인 설계 및 운영.',
+    tags: ['Snowflake', 'Informatica', 'BigQuery', 'Python'],
+    href: 'https://github.com/bohemianmoon5/LG_Uplus_Snowflake_Project',
+    badge: 'ENTERPRISE',
+    imgSrc: '/static/images/project4.jpg',
+    featured: false,
+  },
+  {
+    client: '개인 프로젝트 · 2021',
+    name: '개인 블로그 & 키오스크 시스템',
+    desc: 'Java Spring Framework 기반 개인 블로그와 스터디카페 키오스크 시스템 개발. 회원 관리, 게시판, 예약/결제 핵심 기능 구현.',
+    tags: ['Java', 'Spring', 'Oracle', 'MySQL'],
+    href: 'https://github.com/bohemianmoon5/myblog',
+    badge: 'PERSONAL',
+    imgSrc: '/static/images/project3.png',
+    featured: false,
+  },
+]
 
-  React.useEffect(() => {
-    const options = {
-      strings: ['I love running 🏃‍♂️', 'I love movies 🎬', 'I love music 🎵', 'I love myself 💜'],
-      typeSpeed: 50,
-      backSpeed: 20,
-      backDelay: 1000,
-      startDelay: 500,
-      loop: true,
-      showCursor: true,
-      cursorChar: '|',
-      smartBackspace: false,
-      // fadeOut: true,
-      // fadeOutClass: "typed-fade-out",
-      // fadeOutDelay: 1000,
-    }
+const skillGroups = [
+  {
+    icon: '🗄️',
+    title: 'Data Platform',
+    skills: [
+      { name: 'Snowflake', pct: 90 },
+      { name: 'BigQuery', pct: 75 },
+      { name: 'Oracle', pct: 80 },
+      { name: 'PostgreSQL', pct: 70 },
+      { name: 'MySQL', pct: 70 },
+    ],
+  },
+  {
+    icon: '⚙️',
+    title: 'ETL & Pipeline',
+    skills: [
+      { name: 'Informatica', pct: 88 },
+      { name: 'Airflow', pct: 65 },
+      { name: 'Docker', pct: 60 },
+    ],
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud',
+    skills: [
+      { name: 'AWS', pct: 72 },
+      { name: 'Google Cloud', pct: 60 },
+    ],
+  },
+  {
+    icon: '💻',
+    title: 'Languages',
+    skills: [
+      { name: 'SQL', pct: 90 },
+      { name: 'Python', pct: 75 },
+      { name: 'Java', pct: 65 },
+      { name: 'JavaScript', pct: 50 },
+    ],
+  },
+]
 
-    typed.current = new Typed(el.current, options)
+const certs = [
+  { icon: '❄️', name: 'SnowPro Core Certification', issuer: 'Snowflake', year: '2024', img: '/static/images/SnowPro_core_certification.png' },
+  { icon: '🏗️', name: 'CDI R38 Professional', issuer: 'Informatica', year: '2024', img: '/static/images/CDI_R38_professional_certification-removebg.png' },
+  { icon: '📊', name: 'CDGC Modernization', issuer: 'Informatica', year: '2025', img: '/static/images/CDGC_Modernization_Certification_2025.png' },
+  { icon: '✅', name: 'CDQ Implementation', issuer: 'Informatica', year: '2025', img: '/static/images/CDQ_Implementation_Certification_2025.png' },
+  { icon: '🤖', name: 'CAI Implementation', issuer: 'Informatica', year: '2025', img: '/static/images/CAI_Implementation_Certification_2025.png' },
+]
 
-    return () => {
-      if (typed.current === 'function') {
-        typed.current.destory()
-      }
-    }
-  }, [])
+function SectionLabel({ children }) {
+  return (
+    <div className="mb-3 flex items-center gap-3">
+      <span className="h-px w-6 bg-primary-500" />
+      <span className="font-mono text-xs uppercase tracking-widest text-primary-500">{children}</span>
+    </div>
+  )
+}
 
+function SkillBar({ pct }) {
+  return (
+    <div className="h-0.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+      <div
+        className="h-full rounded-full bg-primary-500 transition-all duration-700"
+        style={{ width: `${pct}%` }}
+      />
+    </div>
+  )
+}
+
+export default function Home() {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="space-y-16">
-        {/* About Me */}
-        <section className="flex flex-col items-center pt-10 text-center">
-          <Image
-            src="/static/images/memoji01.png"
-            alt="Profile Image"
-            width={150}
-            height={150}
-            className="rounded-full"
-          />
-          <h1 className="mt-4 text-4xl font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl">
-            Hi, I'm <span className="text-primary-500">Mason Na</span>
+      <div className="divide-y divide-gray-100 dark:divide-gray-800">
+
+        {/* ── HERO ── */}
+        <section className="pb-20 pt-16">
+          <p className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-primary-500">
+            <span className="h-px w-8 bg-primary-500" />
+            Data Engineer
+          </p>
+          <h1 className="mb-3 text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-gray-100 sm:text-7xl">
+            Mason<br />
+            <span className="text-primary-500">Na.</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-500 dark:text-gray-400">
-            Currently working as a Data Engineer.
-            <br />
-            <br />
-            안녕하세요. 나문오입니다.
-            <br />
-            저는 현재 동국시스템즈에서 데이터 엔지니어로 일하고 있습니다.
-            <br />
-            <br />
+          <p className="mb-4 text-xl font-light text-gray-500 dark:text-gray-400 sm:text-2xl">
+            데이터로 가치를 만드는 엔지니어
           </p>
-          <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
-            <span ref={el}></span>
+          <p className="mb-10 max-w-xl text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            동국시스템즈에서 On-Premise → Cloud 마이그레이션 및 대규모 데이터 파이프라인을 설계·구축합니다.
+            Snowflake, Informatica, AWS를 중심으로 데이터 품질과 성능을 함께 고려합니다.
           </p>
+
+          {/* Stats */}
+          <div className="mb-10 flex flex-wrap gap-10">
+            {[
+              { num: '4+', label: 'Years Experience' },
+              { num: '5+', label: 'Enterprise Projects' },
+              { num: '5', label: 'Certifications' },
+            ].map((s) => (
+              <div key={s.label}>
+                <div className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+                  {s.num.replace('+', '')}<span className="text-primary-500">{s.num.includes('+') ? '+' : ''}</span>
+                </div>
+                <div className="mt-1 font-mono text-xs uppercase tracking-wider text-gray-400">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-600 active:scale-95"
+            >
+              프로젝트 보기 →
+            </a>
+            <a
+              href="mailto:bohemianmoon5@gmail.com"
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-600 transition hover:border-primary-500 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300"
+            >
+              📧 연락하기
+            </a>
+          </div>
         </section>
 
-        {/* Certificates Section */}
-        <section className="mx-auto max-w-4xl px-6">
-          <h2 className="mb-8 text-3xl font-bold text-gray-800 dark:text-gray-100">
-            Certifications
+        {/* ── EXPERIENCE ── */}
+        <section className="py-20" id="experience">
+          <SectionLabel>Experience</SectionLabel>
+          <h2 className="mb-12 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+            경력 사항
           </h2>
-
-          {/* 첫째 줄 */}
-          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-3">
-            <Image
-              src="/static/images/CDGC_Modernization_Certification_2025.png"
-              alt="CDGC Modernization Certification 2025"
-              width={260}
-              height={260}
-              className="object-contain"
-            />
-            <Image
-              src="/static/images/CDQ_Implementation_Certification_2025.png"
-              alt="CDQ Implementation Certification 2025"
-              width={260}
-              height={260}
-              className="object-contain"
-            />
-            <Image
-              src="/static/images/CAI_Implementation_Certification_2025.png"
-              alt="CAI Implementation Certification 2025"
-              width={260}
-              height={260}
-              className="object-contain"
-            />
-          </div>
-
-          {/* 둘째 줄 */}
-          <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2">
-            <Image
-              src="/static/images/CDI_R38_professional_certification-removebg.png"
-              alt="CDI R38 Professional Certification"
-              width={400}
-              height={400}
-              className="object-contain"
-            />
-            <Image
-              src="/static/images/SnowPro_core_certification.png"
-              alt="SnowPro Core Certification"
-              width={280}
-              height={280}
-              className="object-contain"
-            />
-          </div>
-        </section>
-
-        {/* Tech Stack */}
-        <section className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Tech Stack</h2>
-          <p className="dark:text-grey text-gray mb-8   mt-4 text-sm">
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=FFFFFF"
-                alt="Java Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=FFFFFF"
-                alt="Python Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=Oracle&logoColor=FFFFFF"
-                alt="Oracle Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=PostgreSQL&logoColor=FFFFFF"
-                alt="PostgreSQL Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=FFFFFF"
-                alt="MySQL Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=FFFFFF"
-                alt="JavaScript Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=AWS&logoColor=FFFFFF"
-                alt="AWS Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/GoogleBigquery-669DF6?style=flat-square&logo=GoogleBigquery&logoColor=FFFFFF"
-                alt="GoogleBigquery Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Informatica-FF4D00?style=flat-square&logo=Informatica&logoColor=FFFFFF"
-                alt="Informatica Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=Snowflake&logoColor=FFFFFF"
-                alt="Snowflake Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=FFFFFF"
-                alt="Next.js Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=FFFFFF"
-                alt="SpringBoot Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=FFFFFF"
-                alt="Git Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=Airflow&logoColor=FFFFFF"
-                alt="Airflow Badge"
-                className="h-6"
-              />
-            </span>
-            <span className="mr-3 inline-block whitespace-nowrap pt-3">
-              <img
-                src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=FFFFFF"
-                alt="Docker Badge"
-                className="h-6"
-              />
-            </span>
-          </p>
-        </section>
-
-        {/* Projects Section */}
-        <section className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Projects</h2>
-          <div className="container py-12">
-            <div className="-m-4 flex flex-wrap">
-              {projectsData.map((d) => (
-                <Card
-                  key={d.title}
-                  title={d.title}
-                  description={d.description}
-                  imgSrc={d.imgSrc}
-                  href={d.href}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Experience Section */}
-        <section className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Experience</h2>
-          <div className="relative mt-6 border-l border-gray-300 dark:border-gray-700">
-            {experiences.map((exp, index) => (
-              <div key={index} className="ml-6 mb-6">
-                <div className="absolute -left-2.5 mt-1.5 h-4 w-4 rounded-full bg-teal-500"></div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                  {exp.title}
-                </h3>
-                <span className="text-gray-600 dark:text-gray-400">{exp.year}</span>
-                <p className="mt-2 text-gray-700 dark:text-gray-300">{exp.description}</p>
+          <div className="space-y-0">
+            {experiences.map((exp, i) => (
+              <div key={i} className="grid grid-cols-[160px_1px_1fr] gap-x-8 border-b border-gray-100 py-10 last:border-0 dark:border-gray-800">
+                {/* Date */}
+                <div className="pt-1 text-right font-mono text-xs text-gray-400">{exp.year}</div>
+                {/* Line + dot */}
+                <div className="relative bg-gray-200 dark:bg-gray-700">
+                  <div className="absolute left-1/2 top-1 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-primary-500 ring-2 ring-white dark:ring-gray-900" />
+                </div>
+                {/* Content */}
+                <div>
+                  <div className="text-lg font-bold text-gray-900 dark:text-gray-100">{exp.role}</div>
+                  <div className="mb-3 text-sm font-medium text-primary-500">{exp.company}</div>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{exp.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tags.map((t) => (
+                      <span key={t} className="rounded-full border border-primary-200 bg-primary-50 px-3 py-0.5 text-xs font-medium text-primary-600 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-400">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </section>
+
+        {/* ── PROJECTS ── */}
+        <section className="py-20" id="projects">
+          <SectionLabel>Projects</SectionLabel>
+          <h2 className="mb-12 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+            주요 프로젝트
+          </h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {projects.map((p, i) => (
+              <div
+                key={i}
+                className={`group overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:border-primary-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-primary-700 ${p.featured ? 'md:col-span-2' : ''}`}
+              >
+                {/* Image */}
+                <div className={`relative overflow-hidden bg-gray-100 dark:bg-gray-800 ${p.featured ? 'h-52' : 'h-40'}`}>
+                  <Image
+                    src={p.imgSrc}
+                    alt={p.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute right-4 top-4 rounded border border-primary-300 bg-primary-50/90 px-2 py-0.5 font-mono text-xs text-primary-600 backdrop-blur dark:border-primary-700 dark:bg-primary-900/80 dark:text-primary-400">
+                    {p.badge}
+                  </span>
+                </div>
+                {/* Body */}
+                <div className="p-6">
+                  <div className="mb-1 font-mono text-xs uppercase tracking-wider text-gray-400">{p.client}</div>
+                  <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-gray-100">{p.name}</h3>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{p.desc}</p>
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="rounded-full border border-primary-200 bg-primary-50 px-3 py-0.5 text-xs font-medium text-primary-600 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-400">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-primary-500 transition hover:gap-2 hover:text-primary-600"
+                  >
+                    GitHub에서 보기 →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── SKILLS ── */}
+        <section className="py-20" id="skills">
+          <SectionLabel>Tech Stack</SectionLabel>
+          <h2 className="mb-12 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+            기술 스택
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {skillGroups.map((group) => (
+              <div
+                key={group.title}
+                className="rounded-xl border border-gray-200 bg-white p-6 transition hover:border-primary-200 dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-primary-800"
+              >
+                <div className="mb-4 flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary-500">
+                  <span>{group.icon}</span>
+                  {group.title}
+                </div>
+                <div className="space-y-3">
+                  {group.skills.map((s) => (
+                    <div key={s.name} className="flex items-center gap-3">
+                      <span className="w-24 shrink-0 text-xs text-gray-500 dark:text-gray-400">{s.name}</span>
+                      <SkillBar pct={s.pct} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── CERTIFICATIONS ── */}
+        <section className="py-20" id="certs">
+          <SectionLabel>Certifications</SectionLabel>
+          <h2 className="mb-12 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+            자격증 & 인증
+          </h2>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {certs.map((c) => (
+              <div
+                key={c.name}
+                className="group flex flex-col items-center rounded-xl border border-gray-200 bg-white p-5 text-center transition hover:-translate-y-1 hover:border-primary-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"
+              >
+                <div className="relative mb-4 h-16 w-16 overflow-hidden rounded-lg">
+                  <Image
+                    src={c.img}
+                    alt={c.name}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+                <div className="mb-1 text-xs font-semibold leading-snug text-gray-800 dark:text-gray-100">{c.name}</div>
+                <div className="mb-2 text-xs text-gray-400">{c.issuer}</div>
+                <span className="rounded-full bg-primary-50 px-2 py-0.5 font-mono text-xs text-primary-500 dark:bg-primary-900/30">
+                  {c.year}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── CONTACT ── */}
+        <section className="py-20" id="contact">
+          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-12 text-center dark:border-gray-700 dark:bg-gray-800/30">
+            <SectionLabel>Contact</SectionLabel>
+            <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+              함께 일하고 싶으신가요?
+            </h2>
+            <p className="mb-8 text-gray-500 dark:text-gray-400">
+              데이터 파이프라인, 클라우드 마이그레이션, 분석 환경 구축에 관심 있으신 분들의 연락을 환영합니다.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="mailto:bohemianmoon5@gmail.com"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-600"
+              >
+                📧 이메일 보내기
+              </a>
+              <a
+                href="https://github.com/bohemianmoon5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-600 transition hover:border-primary-500 hover:text-primary-500 dark:border-gray-600 dark:text-gray-300"
+              >
+                GitHub 방문 →
+              </a>
+            </div>
+          </div>
+        </section>
+
       </div>
     </>
   )
