@@ -97,18 +97,50 @@ const skillGroups = [
 ]
 
 const certs = [
-  { icon: '❄️', name: 'SnowPro Core Certification', issuer: 'Snowflake', year: '2024', img: '/static/images/SnowPro_core_certification.png' },
-  { icon: '🏗️', name: 'CDI R38 Professional', issuer: 'Informatica', year: '2024', img: '/static/images/CDI_R38_professional_certification-removebg.png' },
-  { icon: '📊', name: 'CDGC Modernization', issuer: 'Informatica', year: '2025', img: '/static/images/CDGC_Modernization_Certification_2025.png' },
-  { icon: '✅', name: 'CDQ Implementation', issuer: 'Informatica', year: '2025', img: '/static/images/CDQ_Implementation_Certification_2025.png' },
-  { icon: '🤖', name: 'CAI Implementation', issuer: 'Informatica', year: '2025', img: '/static/images/CAI_Implementation_Certification_2025.png' },
+  {
+    icon: '❄️',
+    name: 'SnowPro Core Certification',
+    issuer: 'Snowflake',
+    year: '2024',
+    img: '/static/images/SnowPro_core_certification.png',
+  },
+  {
+    icon: '🏗️',
+    name: 'CDI R38 Professional',
+    issuer: 'Informatica',
+    year: '2024',
+    img: '/static/images/CDI_R38_professional_certification-removebg.png',
+  },
+  {
+    icon: '📊',
+    name: 'CDGC Modernization',
+    issuer: 'Informatica',
+    year: '2025',
+    img: '/static/images/CDGC_Modernization_Certification_2025.png',
+  },
+  {
+    icon: '✅',
+    name: 'CDQ Implementation',
+    issuer: 'Informatica',
+    year: '2025',
+    img: '/static/images/CDQ_Implementation_Certification_2025.png',
+  },
+  {
+    icon: '🤖',
+    name: 'CAI Implementation',
+    issuer: 'Informatica',
+    year: '2025',
+    img: '/static/images/CAI_Implementation_Certification_2025.png',
+  },
 ]
 
 function SectionLabel({ children }) {
   return (
     <div className="mb-3 flex items-center gap-3">
       <span className="h-px w-6 bg-primary-500" />
-      <span className="font-mono text-xs uppercase tracking-widest text-primary-500">{children}</span>
+      <span className="font-mono text-xs uppercase tracking-widest text-primary-500">
+        {children}
+      </span>
     </div>
   )
 }
@@ -129,7 +161,6 @@ export default function Home() {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-100 dark:divide-gray-800">
-
         {/* ── HERO ── */}
         <section className="pb-20 pt-16">
           <p className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-primary-500">
@@ -137,15 +168,17 @@ export default function Home() {
             Data Engineer
           </p>
           <h1 className="mb-3 text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-gray-100 sm:text-7xl">
-            Mason<br />
+            Mason
+            <br />
             <span className="text-primary-500">Na.</span>
           </h1>
           <p className="mb-4 text-xl font-light text-gray-500 dark:text-gray-400 sm:text-2xl">
             데이터로 가치를 만드는 엔지니어
           </p>
           <p className="mb-10 max-w-xl text-base leading-relaxed text-gray-500 dark:text-gray-400">
-            동국시스템즈에서 On-Premise → Cloud 마이그레이션 및 대규모 데이터 파이프라인을 설계·구축합니다.
-            Snowflake, Informatica, AWS를 중심으로 데이터 품질과 성능을 함께 고려합니다.
+            동국시스템즈에서 On-Premise → Cloud 마이그레이션 및 대규모 데이터 파이프라인을
+            설계·구축합니다. Snowflake, Informatica, AWS를 중심으로 데이터 품질과 성능을 함께
+            고려합니다.
           </p>
 
           {/* Stats */}
@@ -157,9 +190,12 @@ export default function Home() {
             ].map((s) => (
               <div key={s.label}>
                 <div className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-                  {s.num.replace('+', '')}<span className="text-primary-500">{s.num.includes('+') ? '+' : ''}</span>
+                  {s.num.replace('+', '')}
+                  <span className="text-primary-500">{s.num.includes('+') ? '+' : ''}</span>
                 </div>
-                <div className="mt-1 font-mono text-xs uppercase tracking-wider text-gray-400">{s.label}</div>
+                <div className="mt-1 font-mono text-xs uppercase tracking-wider text-gray-400">
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
@@ -189,7 +225,10 @@ export default function Home() {
           </h2>
           <div className="space-y-0">
             {experiences.map((exp, i) => (
-              <div key={i} className="grid grid-cols-[160px_1px_1fr] gap-x-8 border-b border-gray-100 py-10 last:border-0 dark:border-gray-800">
+              <div
+                key={i}
+                className="grid grid-cols-[160px_1px_1fr] gap-x-8 border-b border-gray-100 py-10 last:border-0 dark:border-gray-800"
+              >
                 {/* Date */}
                 <div className="pt-1 text-right font-mono text-xs text-gray-400">{exp.year}</div>
                 {/* Line + dot */}
@@ -198,12 +237,19 @@ export default function Home() {
                 </div>
                 {/* Content */}
                 <div>
-                  <div className="text-lg font-bold text-gray-900 dark:text-gray-100">{exp.role}</div>
+                  <div className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                    {exp.role}
+                  </div>
                   <div className="mb-3 text-sm font-medium text-primary-500">{exp.company}</div>
-                  <p className="mb-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{exp.desc}</p>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                    {exp.desc}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {exp.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-primary-200 bg-primary-50 px-3 py-0.5 text-xs font-medium text-primary-600 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-400">
+                      <span
+                        key={t}
+                        className="rounded-full border border-primary-200 bg-primary-50 px-3 py-0.5 text-xs font-medium text-primary-600 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-400"
+                      >
                         {t}
                       </span>
                     ))}
@@ -224,10 +270,16 @@ export default function Home() {
             {projects.map((p, i) => (
               <div
                 key={i}
-                className={`group overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:border-primary-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-primary-700 ${p.featured ? 'md:col-span-2' : ''}`}
+                className={`group overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:border-primary-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-primary-700 ${
+                  p.featured ? 'md:col-span-2' : ''
+                }`}
               >
                 {/* Image */}
-                <div className={`relative overflow-hidden bg-gray-100 dark:bg-gray-800 ${p.featured ? 'h-52' : 'h-40'}`}>
+                <div
+                  className={`relative overflow-hidden bg-gray-100 dark:bg-gray-800 ${
+                    p.featured ? 'h-52' : 'h-40'
+                  }`}
+                >
                   <Image
                     src={p.imgSrc}
                     alt={p.name}
@@ -241,12 +293,21 @@ export default function Home() {
                 </div>
                 {/* Body */}
                 <div className="p-6">
-                  <div className="mb-1 font-mono text-xs uppercase tracking-wider text-gray-400">{p.client}</div>
-                  <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-gray-100">{p.name}</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">{p.desc}</p>
+                  <div className="mb-1 font-mono text-xs uppercase tracking-wider text-gray-400">
+                    {p.client}
+                  </div>
+                  <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-gray-100">
+                    {p.name}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                    {p.desc}
+                  </p>
                   <div className="mb-4 flex flex-wrap gap-2">
                     {p.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-primary-200 bg-primary-50 px-3 py-0.5 text-xs font-medium text-primary-600 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-400">
+                      <span
+                        key={t}
+                        className="rounded-full border border-primary-200 bg-primary-50 px-3 py-0.5 text-xs font-medium text-primary-600 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-400"
+                      >
                         {t}
                       </span>
                     ))}
@@ -284,7 +345,9 @@ export default function Home() {
                 <div className="space-y-3">
                   {group.skills.map((s) => (
                     <div key={s.name} className="flex items-center gap-3">
-                      <span className="w-24 shrink-0 text-xs text-gray-500 dark:text-gray-400">{s.name}</span>
+                      <span className="w-24 shrink-0 text-xs text-gray-500 dark:text-gray-400">
+                        {s.name}
+                      </span>
                       <SkillBar pct={s.pct} />
                     </div>
                   ))}
@@ -307,14 +370,11 @@ export default function Home() {
                 className="group flex flex-col items-center rounded-xl border border-gray-200 bg-white p-5 text-center transition hover:-translate-y-1 hover:border-primary-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"
               >
                 <div className="relative mb-4 h-16 w-16 overflow-hidden rounded-lg">
-                  <Image
-                    src={c.img}
-                    alt={c.name}
-                    layout="fill"
-                    objectFit="contain"
-                  />
+                  <Image src={c.img} alt={c.name} layout="fill" objectFit="contain" />
                 </div>
-                <div className="mb-1 text-xs font-semibold leading-snug text-gray-800 dark:text-gray-100">{c.name}</div>
+                <div className="mb-1 text-xs font-semibold leading-snug text-gray-800 dark:text-gray-100">
+                  {c.name}
+                </div>
                 <div className="mb-2 text-xs text-gray-400">{c.issuer}</div>
                 <span className="rounded-full bg-primary-50 px-2 py-0.5 font-mono text-xs text-primary-500 dark:bg-primary-900/30">
                   {c.year}
@@ -332,7 +392,8 @@ export default function Home() {
               함께 일하고 싶으신가요?
             </h2>
             <p className="mb-8 text-gray-500 dark:text-gray-400">
-              데이터 파이프라인, 클라우드 마이그레이션, 분석 환경 구축에 관심 있으신 분들의 연락을 환영합니다.
+              데이터 파이프라인, 클라우드 마이그레이션, 분석 환경 구축에 관심 있으신 분들의 연락을
+              환영합니다.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
@@ -352,7 +413,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
       </div>
     </>
   )

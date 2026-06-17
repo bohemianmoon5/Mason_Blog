@@ -82,12 +82,8 @@ function Guestbook() {
             남기기 →
           </button>
         </div>
-        {emptyAlert && (
-          <p className="text-xs text-red-500">메시지를 입력해주세요.</p>
-        )}
-        {submitted && (
-          <p className="text-xs text-green-500">메시지가 등록되었습니다 :)</p>
-        )}
+        {emptyAlert && <p className="text-xs text-red-500">메시지를 입력해주세요.</p>}
+        {submitted && <p className="text-xs text-green-500">메시지가 등록되었습니다 :)</p>}
       </div>
 
       {/* 메시지 목록 */}
