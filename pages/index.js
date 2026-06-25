@@ -24,7 +24,7 @@ const experiences = [
 
 const projects = [
   {
-    client: '현대홈쇼핑 · 2023',
+    client: '현대홈쇼핑 · 2025',
     name: 'Snowflake 차세대 분석 환경 구축',
     desc: '기존 On-Premise 레거시 환경을 Snowflake 기반 클라우드 데이터 플랫폼으로 전환. Informatica IDMC를 활용한 ETL 파이프라인 설계, 데이터 거버넌스 정책 수립, 분석 워크로드 최적화.',
     tags: ['Snowflake', 'Informatica IDMC', 'AWS S3', 'Python', 'SQL'],
@@ -34,7 +34,7 @@ const projects = [
     featured: true,
   },
   {
-    client: 'LG U+ · 2022',
+    client: 'LG U+ · 2024',
     name: '금융마이데이터 분석 환경 구축',
     desc: '금융마이데이터와 고객행동 데이터를 결합하여 Snowflake 기반 마케팅 분석 플랫폼 구축. 대고객 마케팅 고도화를 위한 데이터 파이프라인 설계 및 운영.',
     tags: ['Snowflake', 'Informatica', 'BigQuery', 'Python'],
@@ -45,7 +45,7 @@ const projects = [
   },
   {
     client: '개인 프로젝트 · 2021',
-    name: '개인 블로그 & 키오스크 시스템',
+    name: '개인 블로그',
     desc: 'Java Spring Framework 기반 개인 블로그와 스터디카페 키오스크 시스템 개발. 회원 관리, 게시판, 예약/결제 핵심 기능 구현.',
     tags: ['Java', 'Spring', 'Oracle', 'MySQL'],
     href: 'https://github.com/bohemianmoon5/myblog',
